@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 50px;
+    padding-bottom: 150px;
+    /* margin-top: 80px; */
+}
+
+.lg-form {
+    background: rgb(255, 255, 255);
+    width: 530px;
+    height: 730px;
+    border-radius: 20px;
+    max-width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 10px;
+}
+
+.login-form {
+    padding: 48px;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h2 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.hd-sub {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 24px 0;
+    color: #2b8ae8;
+}
+
+.login-form>input {
+    border-radius: 20px;
+    height: 40px;
+    border: 1px solid #a19f9d;
+    margin-top: 25px;
+    padding-left: 15px;
+    font-size: 18px;
+    outline-style: none;
+}
+
+.login-form>input::placeholder {
+    font-size: 17px;
+    color: #605e5c;
+}
+
+.login-form .button {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fg-pass {
+    color: #3b3a39;
+    font-size: 17px;
+    font-weight: 500;
+    position: relative;
+}
+
+.fg-pass:hover {
+    color: #3b3a39;
+}
+
+.fg-pass::before {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    border-bottom: 1px solid #3b3a39;
+    width: 0;
+    transition: ease-in-out all 0.3s;
+}
+
+.fg-pass:hover::before {
+    width: 100%;
+}
+
+
+
+.login-btn {
+    background-color: #000;
+    height: 47px;
+    padding: 0px 10px;
+    border-radius: 30px;
+    border: 1px #000 solid;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    transition: all ease-in-out 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.or span {
+    color: #605e5c;
+    /* width: 100%; */
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    z-index: 100;
+    background-color: #ffffff;
+    padding: 5px 20px;
+}
+
+.or {
+    margin: 20px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.or::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border: 1px solid #2b8ae8;
+    bottom: 40%;
+    z-index: 1;
+}
+
+.n-login {
+    padding: 13px;
+    border: 1px #000 solid;
+    width: 250px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-weight: 600;
+    transition: all ease-in-out 0.3s;
+}
+
+.n-login:hover {
+    background-color: #000;
+}
+
+.n-login:hover a {
+    color: #fff;
+}
+
+.regis {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+}
+
+.regis-button {
+    font-weight: 700;
+    position: relative;
+    padding: 10px 15px;
+}
+
+.regis-button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-bottom: 2px #2b8ae8 solid;
+    width: 0;
+    transition: all ease-in-out 0.3s;
+}
+
+.regis-button:hover::before {
+    width: 100%;
+}
+
+/* regis-css */
+
+.c-box {
+    display: flex;
+}
+
+.c-box a {
+    margin-left: 10px;
+    color: #3b3a39;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.acp {
+    width: 100%;
+    text-align: center;
+    font-size: 17px;
+}
+
+.acp a {
+    font-weight: 600;
+    transition: all ease-in-out 0.3s;
+}
+
+.acp a:hover {
+    color: #2b8ae8;
+}
+
+
+/* ------------------notify-----------------------*/
+.notify {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: #FFF;
+    padding: 20px;
+    font-weight: 500;
+    color: #4c4c4c;
+    border-radius: 13px;
+    border: 1px solid #2ecc71;
+    box-shadow: 4px 4px 4px rgb(168 168 168 / 25%);
+    display: none;
+}
+
+.close {
+    color: #c0392b;
+    display: inline-block;
+    margin-left: 5px;
+    cursor: pointer;
+}
