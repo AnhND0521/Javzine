@@ -25,7 +25,7 @@ class UserPostsChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Blog posts',
+                    'label' => 'Your Posts',
                     'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
                 ],
             ],

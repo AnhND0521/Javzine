@@ -25,7 +25,7 @@
             </div>
             <div class="mail">
                 <i class="fa-solid fa-envelope" style="color: #000000;"></i>
-                <span>vcl@javzine.vn</span>
+                <span>tmq@javzine.vn</span>
             </div>
             <div class="info">
                 <a href="">Liên hệ</a>

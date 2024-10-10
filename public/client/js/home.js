@@ -40,7 +40,7 @@ $(document).ready(function () {
         $('.dropdown-profile').stop().slideToggle(500)
     });
     $('.comment-button').click(function () {
-        $('.login-request').slideToggle(500)
+        $('.login-request').stop().slideToggle(500)
     });
     $('.btn-feedback').click(function () {
         $('.body-shadow').fadeIn(500)
