@@ -9,7 +9,7 @@
                     <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
                 </button>
                 <input type="text" wire:model='key' wire:keyup="search"
-                    placeholder="Nhập từ khóa, chủ đề, tác giả,...">
+                    placeholder="キーワードなどを入力してください...">
                 @if ($key != '')
                     <ul id="result">
                         @foreach ($searchPosts as $result)
@@ -18,17 +18,16 @@
                         @endforeach
                     </ul>
                 @endif
-
             </form>
         </div>
 
         @if (!Auth::check())
             <div class="log-btn center">
                 <a href="{{ route('login') }}" class="sign-in-btn center">
-                    Đăng nhập
+                    ログイン
                 </a>
                 <a href="{{ route('register') }}" class="regis-btn center">
-                    Đăng ký
+                    登録する
                 </a>
             </div>
         @else
@@ -43,10 +42,10 @@
             </div>
             <div class="dropdown-profile">
                 <div>
-                    <a href="{{ route('profile') }}" wire:navigate>Tài khoản</a>
-                    <a href="{{url('admin/posts')}}">Quản lý bài viết</a>
-                    <a href="{{ route('change_pass') }}">Đổi mật khẩu</a>
-                    <a href="#" wire:click='logout'>Đăng xuất</a>
+                    <a href="{{ route('profile') }}" wire:navigate>アカウント</a>
+                    <a href="{{url('admin/posts')}}">記事管理</a>
+                    <a href="{{ route('change_pass') }}">パスワードを変更する</a>
+                    <a href="#" wire:click='logout'>サインアウト</a>
                 </div>
             </div>
         @endif
@@ -80,7 +79,7 @@
                 <i class="fa-solid fa-x"></i>
             </div>
             <div class="nav-content">
-                <h3>Category</h3>
+                <h3>カテゴリ</h3>
                 <div class="cate-blc-top">
                     @foreach ($cats as $cat)
                         <a href="{{ route('category', $cat->id) }}" class="cate-item" wire:navigate style="">
@@ -89,8 +88,12 @@
                             <span>{{ $cat->name }}</span>
                         </a>
                     @endforeach
+                    <a href="{{route('horenso')}}" wire:navigate class="cate-item">
+                        <div class="center"><i class="fa-regular fa-file fa-xl" style="color: #9b59b6"></i></div>
+                        <span>報連相</span>
+                    </a>
                 </div>
-                <h3>Theo dõi chúng tôi</h3>
+                <h3>私たちに従って</h3>
                 <div class="follow">
                     <i class="fa-brands fa-facebook fa-2xl" style="color: #2f42d0;"></i>
                     <i class="fa-brands fa-youtube fa-2xl" style="color: #ee2b2b;"></i>
@@ -99,10 +102,10 @@
                     <i class="fa-brands fa-tiktok fa-2xl" style="color: #000000;"></i>
                 </div>
                 <div class="link-blc">
-                    <a href="">Liên hệ</a>
-                    <a href="">Cộng tác nội dung</a>
-                    <a href="">Chính sách bảo mật</a>
-                    <a style="border: none;" href="">Thỏa thuận người dùng</a>
+                    <a href="">コンタクト</a>
+                    <a href="">コンテンツコラボレーション</a>
+                    <a href="">プライバシーポリシー</a>
+                    <a style="border: none;" href="">ユーザー同意書</a>
                 </div>
             </div>
         </div>

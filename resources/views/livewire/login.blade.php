@@ -10,38 +10,38 @@
                     <span class="close"><i class="fa-regular fa-circle-xmark"></i></span>
                 </div>
             @endif
-            <h2 class="hd">Đăng nhập</h2>
-            <span class="hd-sub">Đăng nhập với Email</span>
-            <input type="email" wire:model='email' id="email" placeholder="Địa chỉ Email">
+            <h2 class="hd">ログイン</h2>
+            <span class="hd-sub">メールでログイン</span>
+            <input type="email" wire:model='email' id="email" placeholder="電子メールアドレス">
             @error('email')
                 <span style="color:red">{{ $message }}</span>
             @enderror
-            <input type="password" wire:model='password' id="password" placeholder="Mật khẩu của bạn">
+            <input type="password" wire:model='password' id="password" placeholder="あなたのパスワード">
             @error('password')
                 <span style="color:red">{{ $message }}</span>
             @enderror
             <div class="button">
-                <a href="{{ route('reset_pass') }}" wire:navigate class="fg-pass center">Quên mật khẩu</a>
-                <button style="cursor: pointer" class="login-btn">Đăng nhập</button>
+                <a href="{{ route('reset_pass') }}" wire:navigate class="fg-pass center">パスワードをお忘れた</a>
+                <button style="cursor: pointer" class="login-btn">ログイン</button>
             </div>
-            <div class="or center"><span>hoặc</span></div>
+            <div class="or center"><span>または</span></div>
             <div class="center" style="flex-direction: column;">
                 <div class="n-login center">
                     <img src="{{ asset('client/images/gg.svg') }}" alt="">
                     <a href="{{route('login_google')}}">
-                        Tiếp tục với Google
+                        Google を続ける
                     </a>
                 </div>
                 <div class="n-login center">
                     <img src="{{ asset('client/images/icons8-home.svg') }}" alt="">
                     <a href="{{route('index')}}">
-                        Quay lại trang chủ
+                        ホームページに戻る
                     </a>
                 </div>
             </div>
             <div class="regis">
-                <span class="center">Bạn chưa có tài khoản</span>
-                <a href="{{ route('register') }}" wire:navigate class="regis-button">ĐĂNG KÝ</a>
+                <span class="center">まだアカウントを持たない</span>
+                <a href="{{ route('register') }}" wire:navigate class="regis-button">登録する</a>
             </div>
         </form>
     </div>

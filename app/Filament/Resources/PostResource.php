@@ -32,7 +32,6 @@ use Illuminate\Support\Facades\Auth;
 class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     // protected static ?string $recordTitleAttribute = 'title';
     public static function form(Form $form): Form
@@ -44,7 +43,7 @@ class PostResource extends Resource
                     TextInput::make('title')->required(),
                     Textarea::make('intro')->required(),
                     RichEditor::make('content')
-                        
+
                         ->fileAttachmentsDisk('public')
                         ->fileAttachmentsDirectory('imagesPost')
                         ->required(),
@@ -61,54 +60,85 @@ class PostResource extends Resource
                     Toggle::make('published')
                         ->onColor('success')
                         ->offColor('danger')
-                        ->visible(Auth::user()->is_admin)
                 ])->columnSpan(1),
             ])->columns(3);
     }
 
     public static function table(Table $table): Table
     {
+        $user = auth()->user();
         return $table
+            ->query(
+                Post::query()
+                    ->when(!$user->is_admin, function ($query) use ($user) {
+                        return $query->where('user_id', $user->id);
+                    })
+            )
             ->columns([
                 //
                 TextColumn::make('id')
+                    ->label('ID') // ID giữ nguyên
                     ->sortable()
                     ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true)->visible(Auth::user()->is_admin),
-                ImageColumn::make('thumbnail')->toggleable(),
-                TextColumn::make('title')->searchable()->toggleable()->limit(40),
-                TextColumn::make('category.name')->searchable()->toggleable()->sortable(),
-                TextColumn::make('user.name')->searchable()->toggleable()->sortable(),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->visible(Auth::user()->is_admin),
+
+                ImageColumn::make('thumbnail')
+                    ->label('サムネイル') // Thumbnail
+                    ->toggleable(),
+
+                TextColumn::make('title')
+                    ->label('タイトル') // Title
+                    ->searchable()
+                    ->toggleable()
+                    ->limit(40),
+
+                TextColumn::make('category.name')
+                    ->label('カテゴリ') // Category
+                    ->searchable()
+                    ->toggleable()
+                    ->sortable(),
+
+                TextColumn::make('user.name')
+                    ->label('ユーザー') // User
+                    ->searchable()
+                    ->toggleable()
+                    ->sortable(),
+
                 IconColumn::make('published')
-                    ->icon(fn (string $state): string => match ($state) {
-                        // true => 'heroicon-o-clock',
-                        // false => 'heroicon-o-check-circle',
+                    ->label('公開状況') // Published
+                    ->icon(fn(string $state): string => match ($state) {
                         '1' => 'heroicon-o-check-circle',
                         '' => 'heroicon-o-clock',
                     })
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(fn(string $state): string => match ($state) {
                         '1' => 'success',
                         '' => 'warning'
-                    })->sortable(),
-                // ToggleColumn::make('published')->toggleable()->sortable(),
-                TextColumn::make('view')->sortable(),
+                    })
+                    ->sortable(),
+
+                TextColumn::make('view')
+                    ->label('閲覧数') // View
+                    ->sortable(),
+
                 TextColumn::make('created_at')
-                    ->label('Created At')
+                    ->label('作成日') // Created At
                     ->date()
                     ->sortable()
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: false),
+
             ])
             ->filters([
                 //
-                Tables\Filters\SelectFilter::make('Category')
+                Tables\Filters\SelectFilter::make('カテゴリ')
                     ->relationship('category', 'name'),
-                Tables\Filters\SelectFilter::make('Author')
+                Tables\Filters\SelectFilter::make('著者')
                     ->relationship('user', 'name'),
-                Tables\Filters\SelectFilter::make('published')
+                Tables\Filters\SelectFilter::make('出版された')
                     ->options([
-                        '1' => 'Published',
-                        '0' => 'Waiting'
+                        '1' => '出版された',
+                        '0' => '待っている'
                     ])
 
             ])
@@ -144,5 +174,20 @@ class PostResource extends Resource
             'create' => Pages\CreatePost::route('/create'),
             'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return '投稿';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return '投稿'; // "Category" trong tiếng Nhật
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return '投稿'; // "Categories" trong tiếng Nhật
     }
 }

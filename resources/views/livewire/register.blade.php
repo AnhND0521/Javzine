@@ -1,50 +1,50 @@
 <div id="content" class="center" style="background-image: url({{ asset('client/images/background.jpg') }})">
     <div class="lg-form" style="height: auto;">
         <form class="login-form" wire:submit.prevent='store' action="">
-            <h2 class="hd">Đăng ký</h2>
-            <span class="hd-sub">Đăng ký với Email</span>
-            <input type="text" wire:model='name' id="name" placeholder="Tên của bạn">
+            <h2 class="hd">登録する</h2>
+            <span class="hd-sub">メールでサインアップ</span>
+            <input type="text" wire:model='name' id="name" placeholder="あなたの名前">
             @error('name')
                 <span style="color:red">{{ $message }}</span>
             @enderror
-            <input type="email" wire:model='email' id="email" placeholder="Email tài khoản">
+            <input type="email" wire:model='email' id="email" placeholder="アカウントのメールアドレス">
             @error('email')
                 <span style="color:red">{{ $message }}</span>
             @enderror
-            <input type="password" wire:model='password' id="password" placeholder="Mật khẩu">
+            <input type="password" wire:model='password' id="password" placeholder="パスワード">
             @error('password')
                 <span style="color:red">{{ $message }}</span>
             @enderror
-            <input type="password" wire:model='re_password' id="re_password" placeholder="Nhập lại mật khẩu">
+            <input type="password" wire:model='re_password' id="re_password" placeholder="パスワードを再入力して">
             @error('re_password')
                 <span style="color:red">{{ $message }}</span>
             @enderror
             <div class="button">
                 <div class="c-box">
                     <a class="center fg-pass" href="{{route('login')}}">
-                        Đăng nhập
+                        ログイン
                     </a>
                 </div>
-                <button class="login-btn" style="cursor: pointer">Tạo tài khoản</button>
+                <button class="login-btn" style="cursor: pointer">アカウントを作成する</button>
             </div>
-            <div class="or center"><span>hoặc</span></div>
+            <div class="or center"><span>または</span></div>
             <div class="center" style="flex-direction: column;">
                 <div class="n-login center">
                     <img src="{{ asset('client/images/gg.svg') }}" alt="">
                     <a href="{{route('login_google')}}">
-                        Tiếp tục với Google
+                        Google を続ける
                     </a>
                 </div>
                 <div class="n-login center">
                     <img src="{{ asset('client/images/icons8-home.svg') }}" alt="">
                     <a href="{{route('index')}}">
-                        Quay lại trang chủ
+                        ホームページに戻る
                     </a>
                 </div>
             </div>
             <div class="acp">
-                <span>Bằng việc tạo tài khoản bạn đã đồng ý với <a href="">Thỏa thuận người dùng</a> và <a
-                        href="">Chính sách bảo mật</a> của Kilala.</span>
+                <span>アカウントを作成すると、<a href="">JAVZine のユーザー契約</a>および<a
+                        href="">プライバシー ポリシー</a> に同意したことになります。</span>
             </div>
         </form>
     </div>

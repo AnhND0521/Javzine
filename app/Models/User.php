@@ -55,4 +55,12 @@ class User extends Authenticatable
     public function favoritePosts(){
         return $this->belongsToMany(Post::class,'favorites')->withPivot('id')->withTimestamps();;
     }
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
+    public function getUnreadNotifications()
+    {
+        return $this->notifications()->where('status', 'unread');
+    }
 }

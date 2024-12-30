@@ -10,36 +10,36 @@
                     <span class="close"><i class="fa-regular fa-circle-xmark"></i></span>
                 </div>
             @endif
-            <h2 class="hd">Lấy lại mật khẩu</h2>
-            <span class="hd-sub">Nhập email của bạn</span>
-            <input type="email" wire:model='email' id="email" placeholder="Địa chỉ Email">
+            <h2 class="hd">パスワードを回復する</h2>
+            <span class="hd-sub">メールアドレスを入力して</span>
+            <input type="email" wire:model='email' id="email" placeholder="電子メールアドレス">
             @error('email')
                 <span style="color:red">{{ $message }}</span>
             @enderror
             <div class="button">
-                <a href="{{ route('login') }}" wire:navigate class="fg-pass center">Đăng nhập</a>
-                <button style="cursor: pointer" class="login-btn">Lấy mật khẩu <div wire:loading>
+                <a href="{{ route('login') }}" wire:navigate class="fg-pass center">ログイン</a>
+                <button style="cursor: pointer" class="login-btn">パスワードを取得する<div wire:loading>
                         ...
                     </div></button>
             </div>
-            <div class="or center"><span>hoặc</span></div>
+            <div class="or center"><span>または</span></div>
             <div class="center" style="flex-direction: column;">
                 <div class="n-login center">
                     <img src="{{ asset('client/images/gg.svg') }}" alt="">
                     <a href="{{route('login_google')}}">
-                        Tiếp tục với Google
+                        Google を続ける
                     </a>
                 </div>
                 <div class="n-login center">
                     <img src="{{ asset('client/images/icons8-home.svg') }}" alt="">
                     <a href="">
-                        Quay lại trang chủ
+                        ホームページに戻る
                     </a>
                 </div>
             </div>
             <div class="regis">
-                <span class="center">Bạn chưa có tài khoản</span>
-                <a href="{{ route('register') }}" wire:navigate class="regis-button">ĐĂNG KÝ</a>
+                <span class="center">まだアカウントを持たない</span>
+                <a href="{{ route('register') }}" wire:navigate class="regis-button">登録する</a>
             </div>
         </form>
     </div>

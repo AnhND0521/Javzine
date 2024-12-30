@@ -16,8 +16,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\RecordPageViews;
 use App\Http\Middleware\RecordPostViews;
 use App\Livewire\ChangePass;
+use App\Livewire\HorensoForm;
 use App\Livewire\Profile;
-
+use App\Events\NotificationEvent;
+use Pusher\Pusher;
+use Illuminate\Support\Facades\Broadcast;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +31,6 @@ use App\Livewire\Profile;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', Home::class)->name('index')->middleware(RecordPageViews::class);
 Route::get('login', Login::class)->name('login');
 Route::get('register', Register::class)->name('register');
@@ -57,3 +59,4 @@ Route::get('login/google/callback', function () {
 });
 Route::get('profile',Profile::class)->name('profile')->middleware(Authenticate::class);
 Route::get('change_pass',ChangePass::class)->name('change_pass')->middleware(Authenticate::class);
+Route::get('/horenso', HorensoForm::class)->name('horenso');

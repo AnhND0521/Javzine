@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
@@ -46,14 +47,26 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('name')->searchable(),
-                TextColumn::make('slug')->searchable(),
-                ColorColumn::make('color'),
-                TextColumn::make('created_at')->sortable()->visible(Auth::user()->is_admin),
+                TextColumn::make('name')
+                    ->label('名前') // Name
+                    ->searchable(),
+
+                TextColumn::make('slug')
+                    ->label('スラッグ') // Slug
+                    ->searchable(),
+
+                ColorColumn::make('color')
+                    ->label('カラー'), // Color
+
+                TextColumn::make('created_at')
+                    ->label('作成日') // Created At
+                    ->sortable()
+                    ->visible(Auth::user()->is_admin),
+
             ])
             ->filters([
                 //
-                
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -86,5 +99,19 @@ class CategoryResource extends Resource
             'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
     }
-   
+
+    public static function getNavigationLabel(): string
+    {
+        return 'カテゴリ';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'カテゴリ'; // "Category" trong tiếng Nhật
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'カテゴリ'; // "Categories" trong tiếng Nhật
+    }
 }

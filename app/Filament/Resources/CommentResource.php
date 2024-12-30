@@ -43,20 +43,33 @@ class CommentResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('body')->label('Comment')->searchable()->sortable(),
-                TextColumn::make('user.name')->label('Sender')->searchable()->sortable(),
-                TextColumn::make('post.title')->label('Post')->searchable()->sortable(),
+                TextColumn::make('body')
+                    ->label('コメント') // Comment
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('user.name')
+                    ->label('送信者') // Sender
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('post.title')
+                    ->label('投稿') // Post
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('created_at')
-                    ->label('Posted at')
+                    ->label('投稿日') // Posted at
                     ->date()
                     ->sortable()
-                    ->searchable()
+                    ->searchable(),
+
             ])
             ->filters([
                 //
-                Tables\Filters\SelectFilter::make('Sender')
+                Tables\Filters\SelectFilter::make('送信者')
                     ->relationship('user', 'name'),
-                Tables\Filters\SelectFilter::make('Post')
+                Tables\Filters\SelectFilter::make('投稿')
                     ->relationship('post', 'title'),
             ])
             ->actions([
@@ -88,5 +101,20 @@ class CommentResource extends Resource
             'create' => Pages\CreateComment::route('/create'),
             'edit' => Pages\EditComment::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'コメント';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'コメント'; // "Category" trong tiếng Nhật
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'コメント'; // "Categories" trong tiếng Nhật
     }
 }

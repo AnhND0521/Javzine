@@ -15,7 +15,7 @@ class Home extends Component
     public $max;
     public function mount()
     {
-        $this->max = Post::all()->count()-2;
+        $this->max = Post::where('published', 1)->count()-2;
     }
     public function add()
     {

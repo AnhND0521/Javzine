@@ -19,15 +19,6 @@
 
         <div class="side-bar-1">
         </div>
-        {{-- @if (session('error'))
-            <div class="notify" style="border:1px solid #c0392b !important;">{{ session('error') }}
-                <span class="close"><i class="fa-regular fa-circle-xmark"></i></span>
-            </div>
-        @elseif (session('success'))
-            <div class="notify">{{ session('success') }}
-                <span class="close"><i class="fa-regular fa-circle-xmark"></i></span>
-            </div>
-        @endif --}}
         <div class="content-main">
             <div class="news-main">
                 <article>
@@ -40,7 +31,7 @@
                 </article>
 
                 <div class="more-news">
-                    <span class="news-hd">Xem thêm</span>
+                    <span class="news-hd">もっと見る</span>
                     <div class="more-news-dis">
                         <a href="{{ route('post_detail', $more->id) }}" wire:navigate class="news-img">
                             <img src="{{ asset('storage/' . $more->thumbnail) }}" alt="">
@@ -54,11 +45,11 @@
                 <div class="author">
                     <div class="detail">
                         <span>{{ date_format($post->created_at, 'Y-m-d') }}</span><br>
-                        <span>Bài: {{ $post->user->name }}</span><br>
-                        <span>Nguồn: JavZine</span>
+                        <span>ポスト: {{ $post->user->name }}</span><br>
+                        <span>ソース: JavZine</span>
                     </div>
                     <div class="tag">
-                        <span>Tag:</span>
+                        <span>タグ:</span>
                         <div class="list-tag">
                             @foreach ($post->tags as $tag)
                                 <a href="{{ route('search_results', $tag) }}">#{{ $tag }}</a>
@@ -81,7 +72,7 @@
                             <i class="fa-regular fa-bookmark fa-xl" style="color:#000"></i>
                         </a>
                     @endif
-                    <a href="#">
+                    <a wire:click = "getFacebookShareUrl({{ $post->id }})">
                         <i class="fa-regular fa-share-from-square fa-xl" style="color: #000000;"></i>
                     </a>
                     <a class="btn-feedback">
@@ -92,17 +83,17 @@
             <div class="login-request">
                 @if (!Auth::check())
                     <div class="lt-blc">
-                        <span>Đăng nhập tài khoản để bình luận</span>
+                        <span>コメントするにはアカウントにログインして</span>
                     </div>
                     <div class="rt-blc">
-                        <a href="{{ route('login') }}">Đăng nhập</a>
-                        <a href="{{ route('register') }}">Đăng ký</a>
+                        <a href="{{ route('login') }}">ログイン</a>
+                        <a href="{{ route('register') }}">登録する</a>
                     </div>
                 @endif
                 @if (Auth::check())
                     <form class="comment" wire:submit.prevent="Send">
-                        <textarea wire:model='body' placeholder="Nhập bình luận của bạn" cols="15" rows="8"></textarea>
-                        <div class="submit"><button>Đăng bình luận</button></div>
+                        <textarea wire:model='body' placeholder="コメントを入力して" cols="15" rows="8"></textarea>
+                        <div class="submit"><button>コメントを投稿する</button></div>
                     </form>
                 @endif
                 <div class="bot-blc">
@@ -113,10 +104,10 @@
                                 <li class="comment-item">
                                     <div class="img-user">
                                         @if ($comment->user->avatar)
-                                            <img src="https://ui-avatars.com/api/?name={{ $comment->user->name }}"
+                                            <img src="{{ asset('storage/' . $comment->user->avatar) }}"
                                                 style="background-color: #2b8ae8;" alt="">
                                         @else
-                                            <img src="{{ asset('storage/' . $comment->user->avatar) }}"
+                                            <img src="https://ui-avatars.com/api/?name={{ $comment->user->name }}"
                                                 style="background-color: #2b8ae8;" alt="">
                                         @endif
                                     </div>
@@ -133,7 +124,7 @@
                                 </li>
                             @endforeach
                         @else
-                            <span style="color: #4c4c4c;font-size:18px;font-weight:500">Không có bình luận nào</span>
+                            <span style="color: #4c4c4c;font-size:18px;font-weight:500">まだコメントはない</span>
                         @endif
 
 

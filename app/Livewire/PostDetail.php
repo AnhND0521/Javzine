@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Rule;
 use App\Models\Comment;
 use App\Models\Feedback;
+use App\Models\Notification;
+use App\Events\NotificationEvent;
 use Illuminate\Support\Facades\Gate;
 
 class PostDetail extends Component
@@ -23,6 +25,11 @@ class PostDetail extends Component
     {
         $this->post = Post::find($id);
         $this->id = $id;
+    }
+    public function getFacebookShareUrl($postId)
+    {
+        $postUrl = urlencode(route('post_detail', $postId));
+        return 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode($postUrl);
     }
     public function sendFeedback()
     {
@@ -65,6 +72,17 @@ class PostDetail extends Component
             'user_id' => Auth::user()->id,
             'post_id' => $this->post->id,
         ]);
+        $notification = Notification::create([
+            'body' => "誰かがあなたの投稿にコメントした。",
+            'post_id' => $this->post->id,
+            'user_id' => $this->post->user->id
+        ]);
+        event(new NotificationEvent([
+            'id' => $notification->id,
+            'body' => $notification->body,
+            'post_id' => $notification->post_id,
+            'created_at' => $notification->created_at->toDateTimeString(),
+        ], $this->post->user->id));
         $this->reset('body');
     }
     public function render()

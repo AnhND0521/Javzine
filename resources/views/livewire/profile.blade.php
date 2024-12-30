@@ -4,20 +4,20 @@
         </div>
         <div class="content-main">
             <div class="account-blc center">
-                <h1>Tài khoản</h1>
+                <h1>アカウント</h1>
             </div>
             <form class="acc-pro pro-dis" wire:submit.prevent="update">
-                <h3>Thông tin tài khoản</h3>
-                <span>Là thông tin xuất hiện công khai trên hồ sơ của bạn</span>
+                <h3>アカウント情報</h3>
+                <span>あなたのプロフィールに公開される情報</span>
                 <div>
                     <div class="name-block">
-                        <label for="">Tên hiển thị</label> <br>
+                        <label for="">表示名</label> <br>
                         <input wire:model='name' type="text" class="name-pro"><br>
-                        <label for="">Email</label> <br>
+                        <label for="">電子メール</label> <br>
                         <input type="text" value="{{ Auth::user()->email }}" class="name-pro" disabled>
                     </div>
                     <div class="img-block">
-                        <label for="img-update" style="cursor:pointer;">Chọn ảnh mới</label>
+                        <label for="img-update" style="cursor:pointer;">新しい写真を選択して</label>
                         <input wire:model='avatar' type="file" id="img-update">
                         @if (!$avatar)
                             @if (!$currentAvatar)
@@ -35,13 +35,13 @@
 
                 </div>
                 <div class="account-blc">
-                    <button style="cursor: pointer;" class="btn-item">Chỉnh sửa <div wire:loading>...</div></button>
-                    <a wire:click='logout' class="btn-logout btn-item">Đăng xuất</a>
+                    <button style="cursor: pointer;" class="btn-item">編集 <div wire:loading>...</div></button>
+                    <a wire:click='logout' class="btn-logout btn-item">サインアウト</a>
                 </div>
             </form>
             @if ($favoritePosts->count() > 0)
                 <div class="save-pro" style="margin-top:50px">
-                    <h3 style="margin-bottom:20px">Bài viết đã lưu</h3>
+                    <h3 style="margin-bottom:20px">保存された記事</h3>
                     @foreach ($favoritePosts as $post)
                         <div class="content-item">
                             <a href="{{ route('post_detail', $post->id) }}" wire:navigate class="cnt-img">

@@ -34,13 +34,20 @@ class FeedbackResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('content'),
-                TextColumn::make('post.title')->sortable()->searchable(),
+                TextColumn::make('content')
+                    ->label('内容'), // Content
+
+                TextColumn::make('post.title')
+                    ->label('投稿') // Post
+                    ->sortable()
+                    ->searchable(),
+
                 TextColumn::make('created_at')
-                ->label('Created At')
-                ->date()
-                ->sortable()
-                ->searchable()
+                    ->label('作成日') // Created At
+                    ->date()
+                    ->sortable()
+                    ->searchable(),
+
             ])
             ->filters([
                 //
@@ -57,14 +64,14 @@ class FeedbackResource extends Resource
                 // Tables\Actions\CreateAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -72,5 +79,20 @@ class FeedbackResource extends Resource
             'create' => Pages\CreateFeedback::route('/create'),
             'edit' => Pages\EditFeedback::route('/{record}/edit'),
         ];
-    }    
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'フィードバック';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'フィードバック'; // "Category" trong tiếng Nhật
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'フィードバック'; // "Categories" trong tiếng Nhật
+    }
 }

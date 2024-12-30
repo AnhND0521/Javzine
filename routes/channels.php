@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Broadcast;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,8 @@ use Illuminate\Support\Facades\Broadcast;
 | used to check if an authenticated user can listen to the channel.
 |
 */
-
-Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+// Broadcast::routes(['middleware' => ['web']]);
+Broadcast::channel('notifications.{userId}', function ($user, $userId) {
+    return (int) $user->id === (int) $userId;
 });
+

@@ -26,9 +26,7 @@ class Register extends Component
             'email' => $this->email,
             'password' => Hash::make($this->password)
         ]);
-        Auth::login($user);
-        redirect()->route('index');
-
+        redirect()->route('login');
     }
 
 

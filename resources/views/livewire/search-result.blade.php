@@ -33,14 +33,14 @@
                 @endforeach
                 <div class="more-btn center">
                     @if ($posts->count() == $max)
-                        <button>Đã hết bài viết</button>
+                        <button>記事は終わった</button>
                     @else
-                        <button wire:click='more'>Xem thêm bài viết</button>
+                        <button wire:click='more'>もっと記事を見る</button>
                     @endif
                 </div>
             @else
              <div>
-                <h1>Không có bài viết nào phù hợp với kết quả "{{$key}}"</h1>
+                <h1>結果に一致する記事はない "{{$key}}"</h1>
              </div>
             @endif
 

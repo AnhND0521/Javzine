@@ -6,24 +6,24 @@
                     <span class="close"><i class="fa-regular fa-circle-xmark"></i></span>
                 </div>
             @endif
-            <h2 class="hd">Đổi mật khẩu</h2>
-            <input type="password" id="newPass" wire:model='newPass' placeholder="Mật khẩu mới">
+            <h2 class="hd">パスワードを変更する</h2>
+            <input type="password" id="newPass" wire:model='newPass' placeholder="新しいパスワード">
             @error('newPass')
                 <span style="color:red">{{ $message }}</span>
             @enderror
-            <input type="password" id="renewPass" wire:model='renewPass' placeholder="Nhập lại mật khẩu mới">
+            <input type="password" id="renewPass" wire:model='renewPass' placeholder="新しいパスワードを再入力する">
             @error('renewPass')
                 <span style="color:red">{{ $message }}</span>
             @enderror
             <div class="button">
-                <button style="cursor: pointer" class="login-btn">Đổi mật khẩu</button>
+                <button style="cursor: pointer" class="login-btn">パスワードを変更する</button>
             </div>
-            <div class="or center"><span>hoặc</span></div>
+            <div class="or center"><span>または</span></div>
             <div class="center" style="flex-direction: column;">
                 <div class="n-login center">
                     <img src="{{ asset('client/images/icons8-home.svg') }}" alt="">
                     <a href="{{ route('index') }}">
-                        Quay lại trang chủ
+                        ホームページに戻る
                     </a>
                 </div>
             </div>

@@ -51,29 +51,38 @@ class UserResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('name')->searchable()->sortable(),
-                TextColumn::make('email'),
-                TextColumn::make('created_at')->date()->sortable(),
+                TextColumn::make('name')
+                    ->label('名前') // Name
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('email')
+                    ->label('メールアドレス'), // Email
+
+                TextColumn::make('created_at')
+                    ->label('作成日') // Created At
+                    ->date()
+                    ->sortable(),
+
                 IconColumn::make('is_admin')
-                    ->label('Admin')
-                    ->icon(fn (string $state): string => match ($state) {
-                        // true => 'heroicon-o-clock',
-                        // false => 'heroicon-o-check-circle',
+                    ->label('管理者') // Admin
+                    ->icon(fn(string $state): string => match ($state) {
                         '1' => 'heroicon-o-check-circle',
                         '' => 'heroicon-o-x-circle',
                     })
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(fn(string $state): string => match ($state) {
                         '1' => 'success',
-                        '' => 'danger'
+                        '' => 'danger',
                     })
                     ->searchable()
                     ->sortable(),
+
             ])
             ->filters([
                 //
-                Tables\Filters\SelectFilter::make('is_admin')->label('Role')->options([
-                    '1' => 'Admin',
-                    '0' => 'Member'
+                Tables\Filters\SelectFilter::make('管理者')->label('役割')->options([
+                    '1' => '管理者',
+                    '0' => 'メンバー'
                 ])
             ])
             ->actions([
@@ -108,5 +117,20 @@ class UserResource extends Resource
             'create' => Pages\CreateUser::route('/create'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'ユーザー';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'ユーザー'; // "Category" trong tiếng Nhật
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'ユーザー'; // "Categories" trong tiếng Nhật
     }
 }

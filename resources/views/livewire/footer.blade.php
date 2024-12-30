@@ -12,26 +12,26 @@
     <div class="ft-bot">
         <div class="bot-left">
             <div class="cty">
-                <span style=" font-size: 18px; font-weight: 700;">TẬP ĐOÀN TRUYỀN THÔNG JAVZINE</span> <br>
-                <span>Vận hành bởi Công ty TNHH TQM</span>
+                <span style=" font-size: 18px; font-weight: 700;">JAVZINEメディアグループ</span> <br>
+                <span>有限会社TQMが運営</span>
             </div>
             <div class="address">
                 <i class="fa-solid fa-address-card fa-xl" style="color: #000000;"></i>
-                <span>Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội</span>
+                <span>No. 1 Dai Co Viet、ハイバーチュン、ハノイ</span>
             </div>
             <div class="phone-nb">
                 <i class="fa-solid fa-phone" style="color: #000000;"></i>
-                <span>(+84)123456789 Thứ 2 - Thứ 6 | 8:30 - 17:00</span>
+                <span>(+84)123456789 月曜～金曜 | 8:30～17:00</span>
             </div>
             <div class="mail">
                 <i class="fa-solid fa-envelope" style="color: #000000;"></i>
                 <span>tmq@javzine.vn</span>
             </div>
             <div class="info">
-                <a href="">Liên hệ</a>
-                <a href="">Cộng tác nội dung</a>
-                <a href="">Chính sách bảo mật</a>
-                <a style="border: none;" href="">Thỏa thuận người dùng</a>
+                <a href="">コンタクト</a>
+                <a href="">コンテンツコラボレーション</a>
+                <a href="">プライバシーポリシー</a>
+                <a style="border: none;" href="">ユーザー同意書</a>
             </div>
             <div class="partner">
                 <img src="./assets/img/trangchu/content/partner.png" alt="">
@@ -39,13 +39,13 @@
             </div>
         </div>
         <div class="bot-right">
-            <span>Giấy phép MXH 454/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 16/10/2020. Chịu trách nhiệm
-                quản lý nội dung: Ông Quận Huy Lai.</span> <br>
-            <span>Tất cả nội dung, hình ảnh sử dụng trong Cẩm nang Văn hóa & Phong cách sống tại Javzine.vn thuộc bản
-                quyền của JAVZINE. Mọi hành vi sao chép, nếu không có sự cho phép của JAVZINE, sẽ xem như vi phạm Luật
-                Sở hữu Trí Tuệ hiện hành của nước Việt Nam.</span>
+            <span>2020 年 10 月 16 日に情報通信省から MXH License 454/GP-BTTTT が発行されました。担当
+                コンテンツマネージャー: Huy Lai District 氏。</span> <br>
+            <span>Javzine.vn の文化とライフスタイル ガイドで使用されているすべてのコンテンツと画像は著作権で保護されています。
+                JAVZINEの権利。 JAVZINEの許可なく複製する行為は法律違反となります。
+                ベトナムの現在の知的財産。</span>
             <div class="r-bot">
-                <span>© 2013-2023. All Rights Reserved</span>
+                <span>© 2013-2023.無断転載を禁じます</span>
                 <img src="./assets/img/trangchu/content/protect.png" alt="">
             </div>
         </div>

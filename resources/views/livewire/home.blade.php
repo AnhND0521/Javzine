@@ -10,7 +10,7 @@
     @endif --}}
     <div class="content-top">
         <div class="side-bar-1">
-            <span class="hd">CATEGORY</span>
+            <span class="hd">カテゴリ</span>
             <div class="cate-blc-top">
                 @foreach ($cats as $cat)
                     <a href="{{ route('category', $cat->id) }}" wire:navigate class="cate-item">
@@ -18,11 +18,13 @@
                         <span>{{ $cat->name }}</span>
                     </a>
                 @endforeach
-
-
+                <a href="{{ route('horenso') }}" wire:navigate class="cate-item">
+                    <div class="center"><i class="fa-regular fa-file fa-xl" style="color: #9b59b6"></i></div>
+                    <span>報連相</span>
+                </a>
             </div>
             <div class="res-trend">
-                <span class="hd">TRENDING</span>
+                <span class="hd">トレンド</span>
                 <div class="trending">
                     <div class="trend-cnt">
                         @php
@@ -38,23 +40,23 @@
                 </div>
             </div>
             <div class="cate-blc-bot">
-                <span class="hd">KILALA'S PICK</span>
+                <span class="hd">JAVZINE のおすすめ</span>
                 <div class="card">
                     <img src="{{ asset('client/images/anh1.jpg') }}" alt="">
                     <div class="pick-dis">
-                        <span class="cnt center">Miso Chiruka</span>
-                        <span class="center">1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội</span>
+                        <span class="cnt center">みそちるか</span>
+                        <span class="center">1 Dai Co Viet、ハイバーチュン、ハノイ</span>
                         <div class="pick-dis-bot">
                             <span wire:click='favoritePost({{ $miso->id }})'>
                                 @if (Auth::check())
-                                    <i class="{{ Auth::user()->favoritePosts->where('id',$miso->id)->first()? 'fa-solid': 'fa-regular' }} fa-bookmark fa-xl"
+                                    <i class="{{ Auth::user()->favoritePosts->where('id', $miso->id)->first()? 'fa-solid': 'fa-regular' }} fa-bookmark fa-xl"
                                         style="{{ Auth::user()->favoritePosts->where('id', $miso->id)->first()? 'color:#2b8ae8': 'color:#000' }}"></i>
                                     {{-- @else
                                 <i class="fa-regular fa-bookmark fa-xl"
                                     style="color:#000"></i> --}}
                                 @endif
                             </span>
-                            <a href="{{route('post_detail',$miso->id)}}" wire:navigate>
+                            <a href="{{ route('post_detail', $miso->id) }}" wire:navigate>
                                 <i class="fa-solid fa-arrow-right fa-xl" style="color: #71a5fe;"></i>
                             </a>
 
@@ -67,23 +69,23 @@
                 <div class="j-dict">
                     <span class="hd">J-DICT</span>
                     <div class="j-dis">
-                        <span class="center">Manatsubi</span> <br>
+                        <span class="center">マナツビ</span> <br>
                         <span class="center" style="color: #2b8ae8; font-size: 24px; font-weight: 600;">真夏日</span> <br>
                         <span class="center" style="font-size: 20px;
-                        font-weight: 600;">Chân Hạ
-                            Nhật</span> <br>
-                        <span class="center">Những ngày hè khi nhiệt độ chạm hoặc vượt ngưỡng 30*C</span> <br>
+                        font-weight: 600;">チャン ハ
+                            ニャット</span> <br>
+                        <span class="center">気温が30*Cに達するかそれを超える夏日</span> <br>
                         <div class="j-dis-bot">
                             <span wire:click='favoritePost({{ $natsu->id }})'>
                                 @if (Auth::check())
-                                    <i class="{{ Auth::user()->favoritePosts->where('id',$natsu->id)->first()? 'fa-solid': 'fa-regular' }} fa-bookmark fa-xl"
+                                    <i class="{{ Auth::user()->favoritePosts->where('id', $natsu->id)->first()? 'fa-solid': 'fa-regular' }} fa-bookmark fa-xl"
                                         style="{{ Auth::user()->favoritePosts->where('id', $natsu->id)->first()? 'color:#2b8ae8': 'color:#000' }}"></i>
                                     {{-- @else
                                 <i class="fa-regular fa-bookmark fa-xl"
                                     style="color:#000"></i> --}}
                                 @endif
                             </span>
-                            <a href="{{route('post_detail',$natsu->id)}}"  wire:navigate>
+                            <a href="{{ route('post_detail', $natsu->id) }}" wire:navigate>
                                 <i class="fa-solid fa-arrow-right fa-xl" style="color: #71a5fe;"></i>
                             </a>
                         </div>
@@ -120,15 +122,16 @@
             @endforeach
             <div class="more-btn center">
                 @if ($posts->count() == $max)
-                    <button>Đã hết bài viết</button>
+                    <button>記事は終わった</button>
                 @else
-                    <button wire:click='add'>Xem thêm bài viết</button>
+                    {{-- <button wire:click='add'>{{ $count }}</button> --}}
+                    <button wire:click='add'>もっと記事を見る</button>
                 @endif
             </div>
         </div>
 
         <div class="side-bar-2">
-            <span class="hd">TRENDING</span>
+            <span class="hd">トレンド</span>
             <div class="trending">
                 <div class="trend-cnt">
                     @php
@@ -146,23 +149,23 @@
             <div class="j-dict">
                 <span class="hd">J-DICT</span>
                 <div class="j-dis">
-                    <span class="center">Manatsubi</span> <br>
+                    <span class="center">マナツビ</span> <br>
                     <span class="center" style="color: #2b8ae8; font-size: 24px; font-weight: 600;">真夏日</span> <br>
                     <span class="center" style="font-size: 20px;
-                    font-weight: 600;">Chân Hạ
-                        Nhật</span> <br>
-                    <span class="center">Những ngày hè khi nhiệt độ chạm hoặc vượt ngưỡng 30*C</span> <br>
+                    font-weight: 600;">チャン・ハ・ナット</span>
+                    <br>
+                    <span class="center">気温が30*Cに達するかそれを超える夏日</span> <br>
                     <div class="j-dis-bot">
                         <span wire:click='favoritePost({{ $natsu->id }})'>
                             @if (Auth::check())
-                                <i class="{{ Auth::user()->favoritePosts->where('id',$natsu->id)->first()? 'fa-solid': 'fa-regular' }} fa-bookmark fa-xl"
+                                <i class="{{ Auth::user()->favoritePosts->where('id', $natsu->id)->first()? 'fa-solid': 'fa-regular' }} fa-bookmark fa-xl"
                                     style="{{ Auth::user()->favoritePosts->where('id', $natsu->id)->first()? 'color:#2b8ae8': 'color:#000' }}"></i>
                                 {{-- @else
                             <i class="fa-regular fa-bookmark fa-xl"
                                 style="color:#000"></i> --}}
                             @endif
                         </span>
-                        <a href="{{route('post_detail',$natsu->id)}}"  wire:navigate>
+                        <a href="{{ route('post_detail', $natsu->id) }}" wire:navigate>
                             <i class="fa-solid fa-arrow-right fa-xl" style="color: #71a5fe;"></i>
                         </a>
                     </div>
