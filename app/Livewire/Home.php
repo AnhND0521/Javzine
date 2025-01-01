@@ -44,10 +44,11 @@ class Home extends Component
     {
         return view('livewire.home', [
             'posts' => Post::where('published', 1)->where('title','NOT LIKE','%Miso Ramen%')->where('title','NOT LIKE','%nóng mùa hè%')->orderBy('created_at', 'desc')->take($this->count)->get(),
-            'trend' => Post::where('published', 1)->where('title','NOT LIKE','%Miso Ramen%')->where('title','NOT LIKE','%nóng mùa hè%')->orderBy('view', 'desc')->take(5)->get(),
+            'trend' => Post::where('published', 1)->where('title','NOT LIKE','%Miso Ramen%')->where('title','NOT LIKE','%nóng mùa hè%')->orderBy('view', 'desc')->take(10)->get(),
             'cats' => Category::all(),
             'miso' => Post::where('published', 1)->where('title','LIKE','%Miso Ramen%')->first(),
             'natsu' => Post::where('published', 1)->where('title','LIKE','%nóng mùa hè%')->first(),
+            'loggedin' => Auth::check()
         ]);
     }
 }

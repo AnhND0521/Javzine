@@ -344,7 +344,7 @@ a {
 }
 
 .cate-item:hover {
-    background-image: url(http://localhost/Javzine/public/client/images/bg_hover.png);
+    background-image: url(http://localhost:8080/Javzine/public/client/images/bg_hover.png);
 }
 
 .cate-item div {
@@ -699,7 +699,7 @@ a {
 }
 
 .nav-respon .cate-blc-top .cate-item:hover {
-    background-image: url(http://localhost/Yelo/public/client/images/bg_hover.png);
+    background-image: url(http://localhost:8080/Yelo/public/client/images/bg_hover.png);
 }
 
 .nav-respon .cate-blc-top .cate-item span {

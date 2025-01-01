@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="acp">
-                <span>アカウントを作成すると、<a href="">JAVZine のユーザー契約</a>および<a
+                <span>アカウントを作成すると、<a href="">報連相ラボのユーザー契約</a>および<a
                         href="">プライバシー ポリシー</a> に同意したことになります。</span>
             </div>
         </form>

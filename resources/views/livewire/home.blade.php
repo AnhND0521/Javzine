@@ -20,7 +20,7 @@
                 @endforeach
                 <a href="{{ route('horenso') }}" wire:navigate class="cate-item">
                     <div class="center"><i class="fa-regular fa-file fa-xl" style="color: #9b59b6"></i></div>
-                    <span>報連相</span>
+                    <span>報連相テンプレート</span>
                 </a>
             </div>
             <div class="res-trend">
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="cate-blc-bot">
-                <span class="hd">JAVZINE のおすすめ</span>
+                <span class="hd">報連相ラボのおすすめ</span>
                 <div class="card">
                     <img src="{{ asset('client/images/anh1.jpg') }}" alt="">
                     <div class="pick-dis">
@@ -65,36 +65,12 @@
                     </div>
                 </div>
             </div>
-            <div class="res-j-dict">
-                <div class="j-dict">
-                    <span class="hd">J-DICT</span>
-                    <div class="j-dis">
-                        <span class="center">マナツビ</span> <br>
-                        <span class="center" style="color: #2b8ae8; font-size: 24px; font-weight: 600;">真夏日</span> <br>
-                        <span class="center" style="font-size: 20px;
-                        font-weight: 600;">チャン ハ
-                            ニャット</span> <br>
-                        <span class="center">気温が30*Cに達するかそれを超える夏日</span> <br>
-                        <div class="j-dis-bot">
-                            <span wire:click='favoritePost({{ $natsu->id }})'>
-                                @if (Auth::check())
-                                    <i class="{{ Auth::user()->favoritePosts->where('id', $natsu->id)->first()? 'fa-solid': 'fa-regular' }} fa-bookmark fa-xl"
-                                        style="{{ Auth::user()->favoritePosts->where('id', $natsu->id)->first()? 'color:#2b8ae8': 'color:#000' }}"></i>
-                                    {{-- @else
-                                <i class="fa-regular fa-bookmark fa-xl"
-                                    style="color:#000"></i> --}}
-                                @endif
-                            </span>
-                            <a href="{{ route('post_detail', $natsu->id) }}" wire:navigate>
-                                <i class="fa-solid fa-arrow-right fa-xl" style="color: #71a5fe;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="content-main">
+            @if ($loggedin)
+                <a href="http://localhost:8080/Javzine/admin/posts/create"><button style="background-color:#2b8ae8; color: white; width:100%; height: 50px; font-weight: bold; font-size: 14pt; margin-bottom: 20px">投稿を作成</button></a>
+            @endif
             @foreach ($posts as $post)
                 <div class="content-item">
                     <a href="{{ route('post_detail', $post->id) }}" wire:navigate class="cnt-img">
@@ -143,32 +119,6 @@
                             <span class="center">{{ $post_trend->title }}</span>
                         </a>
                     @endforeach
-                </div>
-            </div>
-
-            <div class="j-dict">
-                <span class="hd">J-DICT</span>
-                <div class="j-dis">
-                    <span class="center">マナツビ</span> <br>
-                    <span class="center" style="color: #2b8ae8; font-size: 24px; font-weight: 600;">真夏日</span> <br>
-                    <span class="center" style="font-size: 20px;
-                    font-weight: 600;">チャン・ハ・ナット</span>
-                    <br>
-                    <span class="center">気温が30*Cに達するかそれを超える夏日</span> <br>
-                    <div class="j-dis-bot">
-                        <span wire:click='favoritePost({{ $natsu->id }})'>
-                            @if (Auth::check())
-                                <i class="{{ Auth::user()->favoritePosts->where('id', $natsu->id)->first()? 'fa-solid': 'fa-regular' }} fa-bookmark fa-xl"
-                                    style="{{ Auth::user()->favoritePosts->where('id', $natsu->id)->first()? 'color:#2b8ae8': 'color:#000' }}"></i>
-                                {{-- @else
-                            <i class="fa-regular fa-bookmark fa-xl"
-                                style="color:#000"></i> --}}
-                            @endif
-                        </span>
-                        <a href="{{ route('post_detail', $natsu->id) }}" wire:navigate>
-                            <i class="fa-solid fa-arrow-right fa-xl" style="color: #71a5fe;"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>

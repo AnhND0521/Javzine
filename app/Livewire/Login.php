@@ -21,8 +21,11 @@ class Login extends Component
     {
         $this->validate();
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
+            $user = User::where('email', $this->email)->first();
+            Auth::login($user);
             $this->reset('email', 'password');
-            redirect()->route('index');
+            return redirect('http://localhost:8080/Javzine/');
+            // return redirect()->route('index');
         } else
         // return $this->redirect('./register',navigate:true);
         {

@@ -1,6 +1,6 @@
 <div id="footer">
     <div class="ft-top">
-        <a href="#" class="img-bot"><img src="{{asset('client/images/logo.png')}}" alt=""></a>
+        <a href="#" class="img-bot"><img src="{{asset('client/images/horensolabo-sm.png')}}" style="width: 70px; height: 70px; margin-top: 10px;" alt=""></a>
         <div class="ft-icon">
             <i class="fa-brands fa-facebook fa-2xl" style="color: #2f42d0;"></i>
             <i class="fa-brands fa-youtube fa-2xl" style="color: #ee2b2b;"></i>
@@ -12,7 +12,7 @@
     <div class="ft-bot">
         <div class="bot-left">
             <div class="cty">
-                <span style=" font-size: 18px; font-weight: 700;">JAVZINEメディアグループ</span> <br>
+                <span style=" font-size: 18px; font-weight: 700;">報連相ラボメディアグループ</span> <br>
                 <span>有限会社TQMが運営</span>
             </div>
             <div class="address">
@@ -25,7 +25,7 @@
             </div>
             <div class="mail">
                 <i class="fa-solid fa-envelope" style="color: #000000;"></i>
-                <span>tmq@javzine.vn</span>
+                <span>tmq@horensolabo.com</span>
             </div>
             <div class="info">
                 <a href="">コンタクト</a>
@@ -41,8 +41,8 @@
         <div class="bot-right">
             <span>2020 年 10 月 16 日に情報通信省から MXH License 454/GP-BTTTT が発行されました。担当
                 コンテンツマネージャー: Huy Lai District 氏。</span> <br>
-            <span>Javzine.vn の文化とライフスタイル ガイドで使用されているすべてのコンテンツと画像は著作権で保護されています。
-                JAVZINEの権利。 JAVZINEの許可なく複製する行為は法律違反となります。
+            <span>HorensoLabo.com の文化とライフスタイル ガイドで使用されているすべてのコンテンツと画像は著作権で保護されています。
+                報連相ラボの権利。 報連相ラボの許可なく複製する行為は法律違反となります。
                 ベトナムの現在の知的財産。</span>
             <div class="r-bot">
                 <span>© 2013-2023.無断転載を禁じます</span>

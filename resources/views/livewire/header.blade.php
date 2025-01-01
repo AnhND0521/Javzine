@@ -1,7 +1,7 @@
 <div id="header">
     <div class="heading">
         <a href="{{ route('index') }}" class="logo" wire:navigate>
-            <img src="{{ asset('client/images/logo.png') }}" alt="">
+            <img src="{{ asset('client/images/horensolabo-sm.png') }}" style="width: 50px; height: 50px; margin-top: 10px"  alt="">
         </a>
         <div class="search center ">
             <form class="search-box {{ $key == '' ? '' : 'border-hidden' }}" wire:submit='sendKey'>

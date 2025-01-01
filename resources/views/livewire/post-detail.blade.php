@@ -41,12 +41,12 @@
                         </a>
                     </div>
                 </div>
-                <span class="news-hd">JAVZine.vn</span>
+                <span class="news-hd">HorensoLabo.com</span>
                 <div class="author">
                     <div class="detail">
                         <span>{{ date_format($post->created_at, 'Y-m-d') }}</span><br>
                         <span>ポスト: {{ $post->user->name }}</span><br>
-                        <span>ソース: JavZine</span>
+                        <span>ソース: 報連相ラボ</span>
                     </div>
                     <div class="tag">
                         <span>タグ:</span>

@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>JAVZine</title>
-    <link rel="icon" href="{{ asset('client/images/logoxx.png') }}" type="image/l-icon">
+    <title>報連相ラボ</title>
+    <link rel="icon" href="{{ asset('client/images/horensolabo.png') }}" type="image/l-icon">
     <link rel="stylesheet" href="{{ asset('client/css/index.css') }}">
     <link rel="stylesheet" href="{{ asset('client/css/news.css') }}">
     <link rel="stylesheet" href="{{ asset('client/css/profile.css') }}">

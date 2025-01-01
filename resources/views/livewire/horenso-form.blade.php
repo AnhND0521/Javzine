@@ -18,72 +18,100 @@
                         <p class="title">報告</p>
                         <p class="message">以下のフォームに必要な情報を入力して。</p>
                         <label>
+                        <span>タイトル</span>
                             <input wire:model="formData.report_title" required="" placeholder="" type="text"
                                 class="input">
-                            <span>タイトル</span>
                         </label>
 
                         <label>
-                            <input wire:model="formData.report_author" required="" placeholder="" type="text"
-                                class="input">
-                            <span>送信者</span>
+                        <span>完了した作業</span>
+                            <textarea wire:model="formData.report_finished" required="" placeholder="" type="text"
+                                class="input"></textarea>
                         </label>
 
                         <label>
-                            <input wire:model="formData.report_content" required="" placeholder="" type="text"
-                                class="input">
-                            <span>コンテンツ</span>
+                        <span>進行中の作業</span>
+                            <textarea wire:model="formData.report_in_progress" required="" placeholder="" type="text"
+                                class="input"></textarea>
                         </label>
 
                         <label>
-                            <input wire:model="formData.report_conclusion" required="" placeholder="" type="text"
+                        <span>直面している問題</span>
+                            <textarea wire:model="formData.report_problem" required="" placeholder="" type="text"
+                                class="input"></textarea>
+                        </label>
+                        
+                        <label>
+                        <span>必要なサポート</span>
+                            <input wire:model="formData.report_support" required="" placeholder="" type="text"
                                 class="input">
-                            <span>結論する</span>
+                        </label>
+                        
+                        <label>
+                        <span>次の作業計画</span>
+                            <input wire:model="formData.report_next" required="" placeholder="" type="text"
+                                class="input">
                         </label>
                     @elseif ($selectedType === 'contact')
                         <p class="title">連絡</p>
                         <p class="message">以下のフォームに必要な情報を入力して。</p>
                         <label>
-                            <input wire:model="formData.contact_author" required="" placeholder="" type="text"
+                            <span>主題</span>
+                            <input wire:model="formData.contact_subject" required="" placeholder="" type="text"
                                 class="input">
-                            <span>送信者</span>
                         </label>
 
                         <label>
-                            <input wire:model="formData.contact_recipient" required="" placeholder="" type="text"
-                                class="input">
-                            <span>受信機</span>
+                            <span>進行中の作業</span>
+                            <textarea wire:model="formData.contact_in_progress" required="" placeholder="" type="text"
+                                class="input"></textarea>
                         </label>
 
                         <label>
-                            <input wire:model="formData.contact_content" required="" placeholder="" type="text"
-                                class="input">
-                            <span>コンテンツ</span>
+                            <span>関係者</span>
+                            <textarea wire:model="formData.contact_involved" required="" placeholder="" type="text"
+                                class="input"></textarea>
+                        </label>
+
+                        <label>
+                            <span>必要なアクシオン</span>
+                            <textarea wire:model="formData.contact_action" required="" placeholder="" type="text"
+                                class="input"></textarea>
                         </label>
                     @elseif ($selectedType === 'discussion')
                         <p class="title">相談</p>
                         <p class="message">以下のフォームに必要な情報を入力して。</p>
                         <label>
-                            <input wire:model="formData.discussion_topic" required="" placeholder="" type="text"
-                                class="input">
-                            <span>トピック</span>
-                        </label>
-
-                        <label>
-                            <input wire:model="formData.discussion_author" required="" placeholder="" type="text"
-                                class="input">
-                            <span>主催者</span>
-                        </label>
-
-                        <label>
+                            <span>相談内容</span>
                             <input wire:model="formData.discussion_content" required="" placeholder="" type="text"
                                 class="input">
-                            <span>ディスカッション内容</span>
+                        </label>
+
+                        <label>
+                            <span>問題の詳細</span>
+                            <textarea wire:model="formData.discussion_problem" required="" placeholder="" type="text"
+                                class="input"></textarea>
+                        </label>
+
+                        <label>
+                            <span>試した解決策</span>
+                            <textarea wire:model="formData.discussion_attempt" required="" placeholder="" type="text"
+                                class="input"></textarea>
                         </label>
                         <label>
-                            <input wire:model="formData.discussion_conclusion" required="" placeholder=""
+                            <span>相談したい質問</span>
+                            <textarea wire:model="formData.discussion_question" required="" placeholder=""
+                                type="text" class="input"></textarea>
+                        </label>
+                        <label>
+                            <span>関係者</span>
+                            <textarea wire:model="formData.discussion_involved" required="" placeholder=""
+                                type="text" class="input"></textarea>
+                        </label>
+                        <label>
+                            <span>回答期限</span>
+                            <input wire:model="formData.discussion_deadline" required="" placeholder=""
                                 type="text" class="input">
-                            <span>結論する</span>
                         </label>
                     @endif
                     <button class="submit" wire:click="generateText">完了</button>
