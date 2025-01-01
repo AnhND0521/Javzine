@@ -104,10 +104,10 @@
                                 <li class="comment-item">
                                     <div class="img-user">
                                         @if ($comment->user->avatar)
-                                            <img src="{{ asset('storage/' . $comment->user->avatar) }}"
+                                            <img src="{{ asset('storage/' . $comment->user->avatar) }}" style="min-width: 50px; min-height: 50px;"
                                                 style="background-color: #2b8ae8;" alt="">
                                         @else
-                                            <img src="https://ui-avatars.com/api/?name={{ $comment->user->name }}"
+                                            <img src="https://ui-avatars.com/api/?name={{ $comment->user->name }}" style="min-width: 50px; min-height: 50px;"
                                                 style="background-color: #2b8ae8;" alt="">
                                         @endif
                                     </div>
